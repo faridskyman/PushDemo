@@ -9,14 +9,30 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 //import android.support.v7.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat;
+import android.view.View;
+import android.widget.Button;
+
 public class MainActivity extends AppCompatActivity {
+
+    Button btnNotif;
+    int notificationID = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        callNotification();
+        btnNotif=(Button)findViewById(R.id.btn_triggerPush);
+        btnNotif.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                callNotification();
+            }
+        });
+
+
+
 
     }
 
@@ -27,12 +43,12 @@ public class MainActivity extends AppCompatActivity {
     //  http://www.tutorialspoint.com/android/android_notifications.htm
     private void callNotification()
     {
-        int notificationID = 0;
+        notificationID++;
         //build notificaion
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("My notification")
-                .setContentText("Hello notification!");
+                .setContentTitle("Notification Demo: " + notificationID)
+                .setContentText("This is Notificaiton #" + notificationID);
 
         //adding action
 
