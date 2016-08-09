@@ -11,10 +11,11 @@
     tools:context="asknlearn.com.pushdemo.MainActivity">
 
     <TextView
-        android:text="Hello World!"
+        android:text="@string/UI_Label_App_Desc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView" />
+        android:id="@+id/textView"
+        style="@style/Base.TextAppearance.AppCompat.Caption" />
 
     <LinearLayout
         android:orientation="vertical"
@@ -23,11 +24,46 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/textView">
 
+        <TextView
+            android:text="@string/UI_Label_Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtLblHeader" />
+
+        <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtHeader"
+            android:text="@string/UI_Txt_PushHeader_Default"
+        android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:text="@string/UI_Label_Desc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtLblDesc" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/txtDesc"
+            android:text="@string/UI_Txt_PushDesc_Default"
+            android:layout_gravity="center_horizontal" />
+
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/UI_button_Send_Puid"
             android:id="@+id/btn_triggerPush"
             android:layout_gravity="center_horizontal" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/UI_button_OpenSQLMain"
+            android:id="@+id/btn_LoadSQLMain"
+            android:layout_gravity="center_horizontal" />
+
+
     </LinearLayout>
 </RelativeLayout>

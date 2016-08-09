@@ -28,6 +28,9 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="asknlearn.com.pushdemo.MainActivity" />
         </activity>
+
+        <activity android:name=".SQL_MainActivity"></activity>
+        <activity android:name=".DisplayContact"></activity>
     </application>
 
 </manifest>

@@ -31,4 +31,14 @@ in code added v4, commented of v7
 //import android.support.v7.app.NotificationCompat;
 import android.support.v4.app.NotificationCompat;
 
+
+
+FEATURE #1
+
+Added SQLLite (copied based on tutorials from)
+    http://www.tutorialspoint.com/android/android_sqlite_database.htm
+
  */
+
+
+

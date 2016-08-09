@@ -11,10 +11,11 @@ import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-    Button btnNotif;
+    Button btnNotif, btnSQLMain;
     int notificationID = 0;
 
 
@@ -24,10 +25,20 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         btnNotif=(Button)findViewById(R.id.btn_triggerPush);
+        btnSQLMain =(Button)findViewById(R.id.btn_LoadSQLMain);
         btnNotif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 callNotification();
+            }
+        });
+
+        btnSQLMain = (Button)findViewById(R.id.btn_LoadSQLMain);
+        btnSQLMain.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(),SQL_MainActivity.class);
+                startActivity(intent);
             }
         });
 
@@ -41,14 +52,26 @@ public class MainActivity extends AppCompatActivity {
     // this creates the notif, setup intents and shows as push in notification drawer
     // code taken from
     //  http://www.tutorialspoint.com/android/android_notifications.htm
+    // additionalr ef: https://developer.android.com/training/notify-user/build-notification.html#action
     private void callNotification()
     {
+
+        //todo: impleement a try check incase the label value is null.
+        EditText eTitle, eDescrption;
+        eTitle = (EditText)findViewById(R.id.txtHeader);
+        String title = eTitle.getText().toString();
+        eDescrption = (EditText)findViewById(R.id.txtDesc);
+        String description = eDescrption.getText().toString();
+
+
+
+
         notificationID++;
         //build notificaion
         NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.mipmap.ic_launcher)
-                .setContentTitle("Notification Demo: " + notificationID)
-                .setContentText("This is Notificaiton #" + notificationID);
+                .setContentTitle(title + notificationID)
+                .setContentText(description + notificationID);
 
         //adding action
 
